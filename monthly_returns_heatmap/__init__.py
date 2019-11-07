@@ -102,7 +102,9 @@ def plot(returns,
          is_prices=False,
          compounded=True,
          eoy=False,
-         ax=None):
+         ax=None,
+         **kwargs
+        ):
 
     returns = get(returns, eoy=eoy, is_prices=is_prices, compounded=compounded)
     returns *= 100
@@ -118,7 +120,7 @@ def plot(returns,
     ax = sns.heatmap(returns, ax=ax, annot=True, center=0,
                      annot_kws={"size": annot_size},
                      fmt="0.2f", linewidths=0.5,
-                     square=square, cbar=cbar, cmap=cmap)
+                     square=square, cbar=cbar, cmap=cmap, **kwargs)
     ax.set_title(title, fontsize=title_size,
                  color=title_color, fontweight="bold")
 
